@@ -9,7 +9,7 @@
 | Documento | Registro único de preguntas, respuestas, dudas abiertas y puntos a validar |
 | Fecha de consolidación | 21/10/2026 |
 | Destinatarios | Junta de Condominio · Lcda. Jheizzi Bethermy (contadora) · Asesor Académico |
-| Fuentes | Notas de reunión, escaneos `Docs/Scaneos/Reunion 19-08/`, respuestas informales de la contraparte y verificaciones aritméticas |
+| Fuentes | Notas de reunión, escaneos `documentacion/Docs/Scaneos/Reunion 19-08/`, respuestas informales de la contraparte y verificaciones aritméticas |
 | Regla | Toda respuesta nueva se registra aquí y se refleja en `LUMA.md` §8/§8.2 |
 
 **Estados:** `Cerrada` (respondida y aplicada) · `Provisional` (se implementa y se valida después) · `Condicional` (requiere seguimiento) · `Abierta` (no bloqueante) · `Pendiente V-xx` (dato cargado provisionalmente, requiere confirmación).
@@ -134,7 +134,7 @@
 
 ## Pendientes de validación posterior (V-01 a V-10)
 
-> Datos que hoy se cargan de forma provisional. Al resolverse, actualizar esta tabla, `LUMA.md` §7.1/§8.2 y, solo con decisión registrada, `data/expected-base-2026.json`.
+> Datos que hoy se cargan de forma provisional. Al resolverse, actualizar esta tabla, `LUMA.md` §7.1/§8.2 y, solo con decisión registrada, `documentacion/data/expected-base-2026.json`.
 
 | ID | Tema | Dato registrado (21/10/2026) | Qué falta / decisión | Impacto |
 |---|---|---|---|---|

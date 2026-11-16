@@ -15,7 +15,7 @@
 
 | Área | Hallazgo |
 |---|---|
-| Documentación | `LUMA.md` v1.0 consolidado; cambios sin commitear y `Docs/Preguntas y Dudas- actualizado.md` borrado |
+| Documentación | `LUMA.md` v1.0 consolidado; cambios sin commitear y `documentacion/Docs/Preguntas y Dudas- actualizado.md` borrado |
 | Datos | 101 aptos, 100 cobranza, 55 gas, 5 locales, 19 egresos; `personas.csv` vacío |
 | Validador | 2 errores (V-01) y 19 advertencias; PB con `tipo=apartamento`; columna `activo` no reconocida |
 | Código | Sin `package.json` ni scaffold; `.gitignore` vacío (0 bytes) |
@@ -25,17 +25,17 @@
 
 ### 2.1 Repositorio
 
-- Se creó `.gitignore` con reglas para Node/Next.js, entornos (`.env*`), Vercel, Supabase local, `data/personal/` (datos personales, RNF-09) y archivos de sistema.
+- Se creó `.gitignore` con reglas para Node/Next.js, entornos (`.env*`), Vercel, Supabase local, `documentacion/data/personal/` (datos personales, RNF-09) y archivos de sistema.
 - Se verificó que los CSV actuales no contienen cédulas, teléfonos ni correos.
-- Se versionaron `data/` y `scripts/` (antes sin trackear).
+- Se versionaron `documentacion/data/` y `documentacion/scripts/` (antes sin trackear).
 
-### 2.2 Datos (`data/base-2026/`)
+### 2.2 Datos (`documentacion/data/base-2026/`)
 
 - `aptos.csv`: los 5 apartamentos de planta baja (`PB-2`, `PB-3`, `PB-5`, `PB-6`, `PB-7`) pasaron de `tipo=apartamento` a `tipo=planta_baja`; conservan `balcon=false` y alícuota `0.00982140`.
-- `data/templates/aptos.csv`: se agregó la columna `activo` al encabezado.
+- `documentacion/data/templates/aptos.csv`: se agregó la columna `activo` al encabezado.
 - No se modificó ningún monto, referencia ni total.
 
-### 2.3 Totales de control (`data/expected-base-2026.json`)
+### 2.3 Totales de control (`documentacion/data/expected-base-2026.json`)
 
 Se añadieron excepciones explícitas para distinguir diferencias conocidas de errores reales:
 
@@ -49,7 +49,7 @@ Se añadieron excepciones explícitas para distinguir diferencias conocidas de e
 
 Los totales impresos (`banco 669.329,54` y `extemporáneo 71.472,76`) **no se alteraron**.
 
-### 2.4 Validador (`scripts/validate-seed.mjs`)
+### 2.4 Validador (`documentacion/scripts/validate-seed.mjs`)
 
 | Cambio | Efecto |
 |---|---|
@@ -62,14 +62,14 @@ Los totales impresos (`banco 669.329,54` y `extemporáneo 71.472,76`) **no se al
 
 ### 2.5 Documentación
 
-- `Docs/LUMA.md`: D-22 registrada; V-08 resuelta en §8.2; V-05/V-07 anotadas; nota de estado en §12.2; Fase 3 marcada como cerrada en §13.
-- `Docs/Avance.md`: fecha, estado de fase, tabla de documentos, observación de cronograma vencido y nuevos próximos pasos.
-- `data/README.md` y `data/base-2026/README.md`: estado real, tabla de excepciones conocidas, regla de PB y regla de datos personales.
+- `documentacion/Docs/LUMA.md`: D-22 registrada; V-08 resuelta en §8.2; V-05/V-07 anotadas; nota de estado en §12.2; Fase 3 marcada como cerrada en §13.
+- `documentacion/Docs/Avance.md`: fecha, estado de fase, tabla de documentos, observación de cronograma vencido y nuevos próximos pasos.
+- `documentacion/data/README.md` y `documentacion/data/base-2026/README.md`: estado real, tabla de excepciones conocidas, regla de PB y regla de datos personales.
 
 ## 3. Verificación
 
 ```bash
-node scripts/validate-seed.mjs data/base-2026
+node documentacion/scripts/validate-seed.mjs documentacion/data/base-2026
 ```
 
 Resultado:
@@ -104,7 +104,7 @@ Resultado: OK
 ```
 
 ```bash
-node scripts/validate-seed.mjs
+node documentacion/scripts/validate-seed.mjs
 ```
 
 Resultado: estructura de plantillas OK (solo advertencia de plantillas vacías).

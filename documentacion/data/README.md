@@ -1,16 +1,16 @@
 # Datos de carga inicial — LUMA
 
-Este directorio contiene las plantillas para transcribir los reportes de julio 2026 y el validador de cuadres. La fuente son los escaneos de `Docs/Scaneos/Reunion 19-08/`.
+Este directorio contiene las plantillas para transcribir los reportes de julio 2026 y el validador de cuadres. La fuente son los escaneos de `documentacion/Docs/Scaneos/Reunion 19-08/`.
 
 ## Estructura
 
 ```text
-data/
+documentacion/data/
 ├── expected-base-2026.json      Totales de control (cobranza junio + julio)
 ├── templates/                   Plantillas vacías (no editar con datos reales)
 ├── base-2026/                   Copia de trabajo con los datos transcritos
 └── README.md
-scripts/
+documentacion/scripts/
 └── validate-seed.mjs            Validador de estructura y cuadres
 ```
 
@@ -18,18 +18,19 @@ Periodos: **cobranza de junio 2026**; **gas, locales, egresos e ingresos de juli
 
 ## Uso
 
-1. Copiar las plantillas a `data/base-2026/`.
-2. Transcribir los datos desde los JPG, manteniendo los encabezados exactos.
-3. Ejecutar:
+1. Copiar las plantillas a `documentacion/data/base-2026/`.
+2. Para datos personales, usar `documentacion/data/base-2026/personas.csv` solo en local (ignorado por git); el repo versiona `personas.example.csv` como referencia.
+3. Transcribir los datos desde los JPG, manteniendo los encabezados exactos.
+4. Ejecutar:
 
 ```bash
-node scripts/validate-seed.mjs data/base-2026
+node documentacion/scripts/validate-seed.mjs documentacion/data/base-2026
 ```
 
 Para validar solo la estructura de las plantillas:
 
 ```bash
-node scripts/validate-seed.mjs
+node documentacion/scripts/validate-seed.mjs
 ```
 
 ## Formato
@@ -91,7 +92,7 @@ Verificadas las 100 filas contra `1.jpg` y `2.jpg` (el apto 67 no aparece en el 
 - Correcciones aplicadas: apto 21 (cuota Bs `6.707,91`, pagos `6.738,00`, ref. `936340`, tasa `700,22`), apto 22 (pagos `6.738,00`), apto 77 (tasa vacía), apto 105 (cuota y saldo `0,00`) y apto 125 (cuota `9,49`).
 - Diferencias que provienen del reporte, no de la transcripción: saldo anterior **1.627,92** vs. impreso **1.594,22** (+33,70); pagos USD **991,07** vs. **991,09** (−0,02); saldo actual **1.598,67** vs. **1.598,66** (+0,01).
 - Clasificación provisional por fecha: julio → `banco` (**658.073,86 Bs**) y agosto → `extemporaneo` (**82.728,44 Bs**). El reporte imprime **669.329,54** y **71.472,76**: la diferencia simétrica de **11.255,68 Bs** corresponde al corte entre recibos y banco (P-09) y está declarada en `expected-base-2026.json` (`cobranza.clasificacion_provisional`). No modificar los totales de control hasta que la contadora confirme ese corte.
-- Los pendientes que requieren respuesta están consolidados en `Docs/LUMA.md` §8.2 (V-01 a V-10).
+- Los pendientes que requieren respuesta están consolidados en `documentacion/Docs/LUMA.md` §8.2 (V-01 a V-10).
 
 ## Datos provisionales
 
@@ -103,6 +104,6 @@ Verificadas las 100 filas contra `1.jpg` y `2.jpg` (el apto 67 no aparece en el 
 
 - No inventar apartamentos, propietarios ni montos. Si un dato no se lee en el JPG, dejarlo vacío y anotarlo para validación.
 - No cargar datos reales en `templates/`; usar `base-2026/`.
-- Los datos personales (cédula, teléfono, correo) no deben salir del repositorio ni de la base. No llenar `personas.csv` con datos reales en un repo público: usar `data/personal/` (ignorado por git) o cargar directo a Supabase.
+- Los datos personales (cédula, teléfono, correo) no deben salir del repositorio ni de la base. No llenar `personas.csv` con datos reales en un repo público: usar `documentacion/data/personal/` (ignorado por git) o cargar directo a Supabase.
 - La columna `activo` de `aptos.csv` es parte del modelo (V-08 resuelto) y se valida como booleano.
 - Toda `planta_baja` (`PB-*`, piso 0) usa `tipo=planta_baja` y `balcon=false`.

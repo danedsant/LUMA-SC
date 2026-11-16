@@ -17,7 +17,7 @@
 
 **Fase actual: base de datos congelada y validada; siguiente es el scaffold técnico** (Fases 0–3 cerradas, Fase 4 pendiente en `LUMA.md`).
 
-**Cierre del 16/11/2026:** `node scripts/validate-seed.mjs data/base-2026` → **0 errores y 13 cuadres**. Se corrigieron los PB a `planta_baja`, se incorporó `activo` al modelo/validador (V-08) y V-01/V-02/V-03/V-07 quedaron como excepciones toleradas y documentadas. `personas.csv` sigue vacío por falta de datos (V-05). Detalle en [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md).
+**Cierre del 16/11/2026:** `node documentacion/scripts/validate-seed.mjs documentacion/data/base-2026` → **0 errores y 13 cuadres**. Se corrigieron los PB a `planta_baja`, se incorporó `activo` al modelo/validador (V-08) y V-01/V-02/V-03/V-07 quedaron como excepciones toleradas y documentadas. `personas.csv` sigue vacío por falta de datos (V-05). Detalle en [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md).
 
 | Documento | Estado | Descripción |
 |---|---|---|
@@ -27,10 +27,10 @@
 | [`Alcance.md`](Alcance.md) | ✅ Creado | Alcance funcional y de datos, exclusiones, supuestos, dependencias, éxito |
 | [`Preguntas y Dudas.md`](<Preguntas y Dudas.md>) | ✅ Consolidado | 52 preguntas + V-01 a V-10; sin bloqueantes para modelar (P-40 bloquea publicar morosos) |
 | [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md) | ✅ Este cierre | Base 2026 congelada, validador sin errores y repo versionado |
-| `data/` + `scripts/` | ✅ Congelado | 101 aptos, cobranza junio, gas, locales y egresos; validador sin errores (16/11/2026) |
+| `documentacion/data/` + `documentacion/scripts/` | ✅ Congelado | 101 aptos, cobranza junio, gas, locales y egresos; validador sin errores (16/11/2026) |
 | `Avance.md` | ✅ Este documento | Consolidado central |
 
-**Fuentes de entrada** (no modificadas): `Docs/Notas/*` (anteproyecto, reunión día 1, notas raw) y `Docs/Scaneos/Reunion 19-08/*` (7 reportes administrativos y 1 nota manuscrita).
+**Fuentes de entrada** (no modificadas): `documentacion/Docs/Notas/*` (anteproyecto, reunión día 1, notas raw) y `documentacion/Docs/Scaneos/Reunion 19-08/*` (7 reportes administrativos y 1 nota manuscrita).
 
 ---
 
@@ -149,7 +149,7 @@ Una **aplicación web responsive** que reemplaza el manejo manual en Excel y los
 1. Replantear el cronograma con los asesores: la ventana 03/07–30/10/2026 ya venció.
 2. Scaffold técnico (Fase 4): Next.js + TypeScript + Tailwind + shadcn/ui sobre el repo actual.
 3. Crear el proyecto Supabase y ejecutar las migraciones del modelo (`LUMA.md` §11) con RLS, vistas y auditoría.
-4. Importar el seed ya validado a Supabase usando `data/expected-base-2026.json` como prueba de cuadres.
+4. Importar el seed ya validado a Supabase usando `documentacion/data/expected-base-2026.json` como prueba de cuadres.
 5. Cargar `personas.csv`, los 3 aptos de gas y el apto 67 cuando la Junta entregue esos datos (V-02, V-03, V-05).
 6. Implementar por dependencias: padrón → cobranza → gas → locales → egresos → cartelera/averías → reportes.
 7. Ejecutar el mes de operación en paralelo con Excel y el traspaso de cuentas (D-18, D-20).

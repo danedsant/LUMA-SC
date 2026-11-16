@@ -22,16 +22,16 @@ Consolidar **todo lo capturado de las fuentes disponibles** (notas de reunión, 
 
 | # | Fuente | Tipo | Contenido clave |
 |---|---|---|---|
-| F1 | `Docs/Notas/Notas Reunion - Dia 1 .md` | Reunión con la Junta (19/08/2026, correspondiente a semana 1 del plan) | Alcance funcional declarado, conceptos de pago, pendientes |
-| F2 | `Docs/Notas/Notas Raw .md` | Notas crudas previas/posteriores a la reunión | Reglas de negocio sueltas, casos especiales |
-| F3 | `Docs/Notas/Servicio Comunitario - Anteproyecto - FInal .md` | Documento oficial UNEG | Diagnóstico, objetivos, resultados esperados, plan de trabajo 15 semanas |
-| F4 | `Docs/Scaneos/Reunion 19-08/1.jpg`, `2.jpg` | **Relación de Cobranzas — Junio 2026** (marcado a mano "Base de datos ①") | Padrón, cuotas, pagos, referencias, tasas, saldos, totales |
-| F5 | `Docs/Scaneos/Reunion 19-08/3.jpg` | **Relación de Pagos de Servicio de Gas — Julio 2026** ("Base de datos ②") | Pagos de gas por apartamento |
-| F6 | `Docs/Scaneos/Reunion 19-08/4.jpg` | **Resumen de Ingresos y Egresos Locales — Julio 2026** ("Base de datos ③") | Locales, cuotas, ingresos, egresos propios |
-| F7 | `Docs/Scaneos/Reunion 19-08/5.jpg` | **Relación de Egresos del Condominio — Julio 2026** | Egresos fijos/variables, alícuotas, gas, mensajes/notas/observaciones |
-| F8 | `Docs/Scaneos/Reunion 19-08/6.jpg` | **Relación de Ingresos y Egresos (Bs.) — Julio 2026** | Ingresos por cuenta, otros ingresos, totales |
-| F9 | `Docs/Scaneos/Reunion 19-08/7.jpg` | **Egresos Cuentas Bancarias — Julio 2026** | Detalle de egresos y notas del contador |
-| F10 | `Docs/Scaneos/Reunion 19-08/7reverso.jpg` | Nota manuscrita | Contacto asesora comunitaria; tareas: Ley de Propiedad Horizontal y Junta General de Condominio |
+| F1 | `documentacion/Docs/Notas/Notas Reunion - Dia 1 .md` | Reunión con la Junta (19/08/2026, correspondiente a semana 1 del plan) | Alcance funcional declarado, conceptos de pago, pendientes |
+| F2 | `documentacion/Docs/Notas/Notas Raw .md` | Notas crudas previas/posteriores a la reunión | Reglas de negocio sueltas, casos especiales |
+| F3 | `documentacion/Docs/Notas/Servicio Comunitario - Anteproyecto - FInal .md` | Documento oficial UNEG | Diagnóstico, objetivos, resultados esperados, plan de trabajo 15 semanas |
+| F4 | `documentacion/Docs/Scaneos/Reunion 19-08/1.jpg`, `2.jpg` | **Relación de Cobranzas — Junio 2026** (marcado a mano "Base de datos ①") | Padrón, cuotas, pagos, referencias, tasas, saldos, totales |
+| F5 | `documentacion/Docs/Scaneos/Reunion 19-08/3.jpg` | **Relación de Pagos de Servicio de Gas — Julio 2026** ("Base de datos ②") | Pagos de gas por apartamento |
+| F6 | `documentacion/Docs/Scaneos/Reunion 19-08/4.jpg` | **Resumen de Ingresos y Egresos Locales — Julio 2026** ("Base de datos ③") | Locales, cuotas, ingresos, egresos propios |
+| F7 | `documentacion/Docs/Scaneos/Reunion 19-08/5.jpg` | **Relación de Egresos del Condominio — Julio 2026** | Egresos fijos/variables, alícuotas, gas, mensajes/notas/observaciones |
+| F8 | `documentacion/Docs/Scaneos/Reunion 19-08/6.jpg` | **Relación de Ingresos y Egresos (Bs.) — Julio 2026** | Ingresos por cuenta, otros ingresos, totales |
+| F9 | `documentacion/Docs/Scaneos/Reunion 19-08/7.jpg` | **Egresos Cuentas Bancarias — Julio 2026** | Detalle de egresos y notas del contador |
+| F10 | `documentacion/Docs/Scaneos/Reunion 19-08/7reverso.jpg` | Nota manuscrita | Contacto asesora comunitaria; tareas: Ley de Propiedad Horizontal y Junta General de Condominio |
 
 > Los escaneos ①②③ están marcados a mano como **"Base de datos"**: son la fuente de datos maestros para el modelado.
 >

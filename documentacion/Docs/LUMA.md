@@ -1,6 +1,6 @@
 # LUMA — Documento maestro del proyecto
 
-> **Documento canónico.** Este archivo contiene la versión consolidada y vigente del alcance, los requisitos, las reglas de negocio, las decisiones, la arquitectura, el modelo de datos y el plan de trabajo. Los demás documentos de `Docs/` se conservan como fuentes de trabajo e insumos históricos.
+> **Documento canónico.** Este archivo contiene la versión consolidada y vigente del alcance, los requisitos, las reglas de negocio, las decisiones, la arquitectura, el modelo de datos y el plan de trabajo. Los demás documentos de `documentacion/Docs/` se conservan como fuentes de trabajo e insumos históricos.
 
 | Campo | Valor |
 |---|---|
@@ -11,7 +11,7 @@
 | Duración | 120 horas · 03/07/2026 – 30/10/2026 |
 | Equipo | Daniel Villalba Santamaría (27.506.542) · Isabella Rodríguez (31.521.612) · Luis Millán (30.040.213) |
 | Asesores | Académico: Prof. Germain Salazar Yépez · Comunitario: Lcda. Jheizzi Bethermy |
-| Documento | `Docs/LUMA.md` |
+| Documento | `documentacion/Docs/LUMA.md` |
 | Versión | **1.0** |
 | Fecha | 21/10/2026 |
 | Estado | **Consolidado para validación** |
@@ -439,7 +439,7 @@ Implementar un sistema de información web para la gestión comunicacional y el 
 
 ### 8.2 Pendientes de validación posterior
 
-> Datos que hoy se cargan de forma provisional y que requieren confirmación de la contadora, la Junta o el asesor. Al resolverse, actualizar esta tabla, la sección 7.1 y, solo con decisión registrada, `data/expected-base-2026.json`.
+> Datos que hoy se cargan de forma provisional y que requieren confirmación de la contadora, la Junta o el asesor. Al resolverse, actualizar esta tabla, la sección 7.1 y, solo con decisión registrada, `documentacion/data/expected-base-2026.json`.
 
 | ID | Tema | Dato registrado (21/10/2026) | Qué falta / decisión | Impacto |
 |---|---|---|---|---|
@@ -482,6 +482,7 @@ Implementar un sistema de información web para la gestión comunicacional y el 
 | D-20 | 21/10/2026 | Un mes de operación en paralelo con Excel antes de depender solo del sistema | Tomada |
 | D-21 | 21/10/2026 | Se adopta la transcripción verificada de cobranza junio (pagos 753.635,90 Bs y cuota 964,43 USD) y se documentan las diferencias de saldo anterior del reporte; banco/extemporáneo se clasifica provisionalmente por fecha (julio/agosto) y el corte de 11.255,68 Bs espera el criterio de la contadora (P-09) | Tomada |
 | D-22 | 16/11/2026 | Se congela la base 2026: PB corregidos a `planta_baja`, `activo` conservado, `personas.csv` vacío y V-01/V-02/V-03/V-07 declaradas como excepciones toleradas en `expected-base-2026.json`; los totales impresos no se alteran | Tomada |
+| D-23 | 16/11/2026 | La app Next.js se ubica en la raíz del repo y `Docs`, `data` y `scripts` pasan a `documentacion/`; el repo `LUMA-SC` se mantiene público y `personas.csv` no se versiona (solo `personas.example.csv`); Supabase se usa en remoto (sin Docker) y se fija Node 22 | Tomada |
 
 ### 9.1 Decisiones técnicas derivadas
 
@@ -578,7 +579,7 @@ Vercel Cron / GitHub Actions → /api/health → SELECT 1 (keep-alive)
 
 ### 10.8 Cuentas y traspaso (D-18)
 
-- Repositorio actual: `danedsant/LUMA---Servicio-Comunitario`.
+- Repositorio actual: `danedsant/LUMA-SC` (público; sin datos personales).
 - Cuentas a nombre de los estudiantes durante el proyecto.
 - Antes de la entrega: transferir Supabase, Vercel y GitHub; rotar claves; verificar correo de recuperación; restaurar un respaldo de prueba; firmar acta.
 
@@ -722,7 +723,7 @@ erDiagram
 | `locales_julio.csv` | `local`, `cuota_usd`, `monto_bs`, `encargado`, `estado` |
 | `egresos_julio.csv` | `cuenta`, `fecha`, `descripcion`, `factura`, `monto_bs`, `tasa`, `monto_usd`, `tipo`, `imputado_a`, `observacion` |
 
-> **Implementación:** las plantillas están en `data/templates/`, el directorio de trabajo es `data/base-2026/` y el validador es `scripts/validate-seed.mjs`. Los totales de control están en `data/expected-base-2026.json`. Estado actual (16/11/2026): padrón, cobranza de junio, gas, locales y egresos transcritos; el validador cierra con **0 errores y 13 cuadres**. Las diferencias ya documentadas (V-01, V-02, V-03, V-05 y los 17 ajustes de centavos) se declaran como excepciones toleradas en `expected-base-2026.json` y salen como advertencia, no como error. Faltan `personas.csv` (los escaneos no traen cédulas/nombres) y la confirmación del corte banco/extemporáneo.
+> **Implementación:** las plantillas están en `documentacion/data/templates/`, el directorio de trabajo es `documentacion/data/base-2026/` y el validador es `documentacion/scripts/validate-seed.mjs`. Los totales de control están en `documentacion/data/expected-base-2026.json`. Estado actual (16/11/2026): padrón, cobranza de junio, gas, locales y egresos transcritos; el validador cierra con **0 errores y 13 cuadres**. Las diferencias ya documentadas (V-01, V-02, V-03, V-05 y los 17 ajustes de centavos) se declaran como excepciones toleradas en `expected-base-2026.json` y salen como advertencia, no como error. Faltan `personas.csv` (los escaneos no traen cédulas/nombres; el repo solo versiona `personas.example.csv`) y la confirmación del corte banco/extemporáneo.
 
 ### 12.3 Validaciones obligatorias
 
@@ -747,7 +748,7 @@ erDiagram
 
 | Fase | Entregable | Criterio de aceptación | Estado |
 |---|---|---|---|
-| 0 | `Docs/LUMA.md` consolidado | Documento único con alcance, requisitos, decisiones, arquitectura y modelo | ✅ |
+| 0 | `documentacion/Docs/LUMA.md` consolidado | Documento único con alcance, requisitos, decisiones, arquitectura y modelo | ✅ |
 | 1 | Documentos fuente marcados y sin contradicciones | Banners de consolidación y `Avance.md` actualizado | ✅ |
 | 2 | Modelo de datos implementable | ER, diccionario, RLS y reglas monetarias aprobadas | ✅ (en este documento) |
 | 3 | CSV base 2026 + script de validación | Reproduce los cuadres de la sección 12.3 | ✅ Validador con 0 errores y 13 cuadres (16/11/2026); diferencias V-01/V-02/V-03/V-07 toleradas y documentadas; `personas.csv` pendiente por falta de datos |
@@ -794,8 +795,8 @@ erDiagram
 
 ### 15.1 Fuente de verdad
 
-1. **`Docs/LUMA.md`** es la fuente canónica.
-2. Los documentos de `Docs/` son insumos; si contradicen a `LUMA.md`, prevalece `LUMA.md`.
+1. **`documentacion/Docs/LUMA.md`** es la fuente canónica.
+2. Los documentos de `documentacion/Docs/` son insumos; si contradicen a `LUMA.md`, prevalece `LUMA.md`.
 3. Precedencia para decisiones: **respuesta de la Junta/contadora → `LUMA.md` → evidencia aritmética → supuesto técnico**.
 4. Toda decisión nueva se registra como `D-xx` con la plantilla de la sección 9.2 y se refleja en las secciones afectadas en el mismo cambio.
 
@@ -809,8 +810,8 @@ erDiagram
 | `Preguntas y Dudas.md` | Registro único consolidado: P-01 a P-52, respuestas y V-01 a V-10 | Vigente |
 | `Arquitectura y dudas resueltas.md` | Definición técnica Opción B | Fuente técnica |
 | `Avance.md` | Estado del proyecto | Se actualiza como tablero |
-| `Docs/Notas/*` | Anteproyecto, reunión y notas crudas | Fuente primaria |
-| `Docs/Scaneos/*` | Reportes administrativos | Evidencia |
+| `documentacion/Docs/Notas/*` | Anteproyecto, reunión y notas crudas | Fuente primaria |
+| `documentacion/Docs/Scaneos/*` | Reportes administrativos | Evidencia |
 
 ### 15.3 Traspaso (D-18)
 

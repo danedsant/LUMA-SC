@@ -17,7 +17,11 @@ supabase/.temp/
 supabase/.branches/
 
 # Datos personales (RNF-09): nunca versionar cédulas, teléfonos ni correos
-data/personal/
+documentacion/data/personal/
+documentacion/data/base-2026/personas.csv
+
+# Scaffold temporal
+.luma-scaffold/
 
 # Sistema
 .DS_Store

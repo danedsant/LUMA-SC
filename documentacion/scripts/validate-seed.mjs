@@ -3,21 +3,24 @@
  * LUMA · Validador de la carga inicial (julio 2026)
  *
  * Uso:
- *   node scripts/validate-seed.mjs
- *   node scripts/validate-seed.mjs data/base-2026
+ *   node documentacion/scripts/validate-seed.mjs
+ *   node documentacion/scripts/validate-seed.mjs documentacion/data/base-2026
  *
  * Sin argumento valida la estructura de las plantillas. Con un directorio
- * valida estructura y cuadres contra data/expected-base-2026.json.
+ * valida estructura y cuadres contra documentacion/data/expected-base-2026.json.
+ * Las rutas se resuelven desde la ubicación del script, no desde el cwd.
  */
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = process.cwd();
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(scriptDir, "..", "..");
 const dataDir = path.resolve(
-  process.argv[2] ?? path.join(root, "data", "templates"),
+  process.argv[2] ?? path.join(scriptDir, "..", "data", "templates"),
 );
-const expectedPath = path.join(root, "data", "expected-base-2026.json");
+const expectedPath = path.join(scriptDir, "..", "data", "expected-base-2026.json");
 
 if (!fs.existsSync(expectedPath)) {
   console.error(`No existe ${expectedPath}`);
@@ -80,10 +83,11 @@ function parseCsv(text) {
   return rows.filter((r) => r.some((v) => v.trim() !== ""));
 }
 
-function readTable(file, requiredHeaders) {
+function readTable(file, requiredHeaders, optional = false) {
   const full = path.join(dataDir, file);
 
   if (!fs.existsSync(full)) {
+    if (optional) return [];
     errors.push(`Falta el archivo ${rel(full)}`);
     return [];
   }
@@ -189,14 +193,11 @@ const aptos = readTable("aptos.csv", [
   "estado",
   "activo",
 ]);
-const personas = readTable("personas.csv", [
-  "cedula",
-  "nombre",
-  "telefono",
-  "email",
-  "apto_codigo",
-  "rol",
-]);
+const personas = readTable(
+  "personas.csv",
+  ["cedula", "nombre", "telefono", "email", "apto_codigo", "rol"],
+  true,
+);
 const cobranza = readTable("cobranza_junio.csv", [
   "apto_codigo",
   "saldo_anterior_usd",
@@ -319,7 +320,7 @@ for (const [apto, count] of titulares) {
 
 if (personas.length === 0 && aptos.length > 0) {
   warnings.push(
-    "personas.csv vacío (V-05): no se valida el titular único por apartamento",
+    "personas.csv vacío o ausente (V-05): copiar personas.example.csv solo en local; no se valida el titular único por apartamento",
   );
 }
 
