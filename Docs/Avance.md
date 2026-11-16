@@ -1,5 +1,7 @@
 # Avance — LUMA (Documento central)
 
+> **Documento consolidado:** el contenido canónico y las decisiones vigentes están en [`LUMA.md`](LUMA.md). Este archivo se mantiene como tablero de estado del proyecto.
+
 | Campo | Valor |
 |---|---|
 | Proyecto | **LUMA** — Sistema de información web para la gestión comunicacional y el control de incidencias y cobranza |
@@ -7,23 +9,28 @@
 | Programa | Servicio Comunitario UNEG — Ingeniería Informática, Sede Puerto Ordaz (120 h, 03/07/2026 – 30/10/2026) |
 | Equipo | Daniel Villalba, Isabella Rodríguez, Luis Millán |
 | Asesores | Académico: Prof. Germain Salazar Yépez · Comunitario: Lcda. Jheizzi Bethermy |
-| Última actualización | 27/09/2026 |
+| Última actualización | 16/11/2026 |
 
 ---
 
 ## 1. Estado general
 
-**Fase actual: Levantamiento y definición de requerimientos** (semana 3 del plan de trabajo).
+**Fase actual: base de datos congelada y validada; siguiente es el scaffold técnico** (Fases 0–3 cerradas, Fase 4 pendiente en `LUMA.md`).
+
+**Cierre del 16/11/2026:** `node scripts/validate-seed.mjs data/base-2026` → **0 errores y 13 cuadres**. Se corrigieron los PB a `planta_baja`, se incorporó `activo` al modelo/validador (V-08) y V-01/V-02/V-03/V-07 quedaron como excepciones toleradas y documentadas. `personas.csv` sigue vacío por falta de datos (V-05). Detalle en [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md).
 
 | Documento | Estado | Descripción |
 |---|---|---|
-| [`Elicitacion.md`](Elicitacion.md) | ✅ Creado | Fuentes, actores, hallazgos por dominio, reglas de negocio, cuadres aritméticos, gaps |
+| [`LUMA.md`](LUMA.md) | ✅ Canónico | Alcance, requisitos, 52 preguntas, decisiones D-01 a D-22, arquitectura, modelo de datos y plan |
+| [`Elicitacion.md`](Elicitacion.md) | 📚 Fuente | Fuentes, actores, hallazgos por dominio, reglas de negocio, cuadres aritméticos, gaps |
 | [`Requisitos Funcionales .md`](<Requisitos Funcionales .md>) | ✅ Creado | 54 RF + 21 RNF organizados en 10 módulos, con trazabilidad |
 | [`Alcance.md`](Alcance.md) | ✅ Creado | Alcance funcional y de datos, exclusiones, supuestos, dependencias, éxito |
-| [`Preguntas y Dudas.md`](<Preguntas y Dudas.md>) | ✅ Creado | 52 preguntas (23 🔴 bloqueantes) a resolver antes de continuar |
+| [`Preguntas y Dudas.md`](<Preguntas y Dudas.md>) | ✅ Consolidado | 52 preguntas + V-01 a V-10; sin bloqueantes para modelar (P-40 bloquea publicar morosos) |
+| [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md) | ✅ Este cierre | Base 2026 congelada, validador sin errores y repo versionado |
+| `data/` + `scripts/` | ✅ Congelado | 101 aptos, cobranza junio, gas, locales y egresos; validador sin errores (16/11/2026) |
 | `Avance.md` | ✅ Este documento | Consolidado central |
 
-**Fuentes de entrada** (no modificadas): `Docs/Notas/*` (anteproyecto, reunión día 1, notas raw) y `Docs/Scaneos/Reunion 19-08/*` (7 reportes administrativos marcados "Base de datos ①②③").
+**Fuentes de entrada** (no modificadas): `Docs/Notas/*` (anteproyecto, reunión día 1, notas raw) y `Docs/Scaneos/Reunion 19-08/*` (7 reportes administrativos y 1 nota manuscrita).
 
 ---
 
@@ -44,7 +51,7 @@ Una **aplicación web responsive** que reemplaza el manejo manual en Excel y los
 
 **Incluido (fase 1):** usuarios y roles · padrón · cartelera digital · averías · cobranza de condominio · cuota de gas · locales · ingresos/egresos y conciliación (parcial) · reportes y exportación · mensajes/notas/observaciones.
 
-**Carga inicial:** histórico de pagos, saldos, gas, ingresos y egresos desde los reportes Excel, con base en julio 2026.
+**Carga inicial:** histórico de pagos y saldos de junio 2026, más gas, locales, ingresos y egresos de julio 2026, desde los reportes Excel/JPG.
 
 **Excluido:** pasarelas de pago, nómina/facturación, app nativa, telemetría de ascensores/cámaras, otras torres, facturación por consumo de agua/gas, reservas de áreas, asambleas electrónicas, reemplazo total de Excel.
 
@@ -85,7 +92,7 @@ Una **aplicación web responsive** que reemplaza el manejo manual en Excel y los
 
 | Conjunto | Resultado |
 |---|---|
-| Cobranza julio: 753.635,90 = 669.329,54 (banco) + 6.500 (efectivo) + 6.333,60 (cruce) + 71.472,76 (extemporáneo) | ✔ |
+| Cobranza junio: 753.635,90 = 669.329,54 (banco) + 6.500 (efectivo) + 6.333,60 (cruce) + 71.472,76 (extemporáneo) | ✔ |
 | Gas julio: 223.512,85 = 214.822,82 (banco) + 4.300 (efectivo) + 4.390,03 (cta/cobrar) | ✔ |
 | Ingresos julio: 50.861,41 + 669.329,54 + 214.822,82 + 119.790,84 = 1.054.804,61 | ✔ |
 | Alícuota: 1.088,03 USD × 0,982140 % = 10,69 · × 0,998545 % = 10,86 | ✔ |
@@ -93,7 +100,9 @@ Una **aplicación web responsive** que reemplaza el manejo manual en Excel y los
 
 ---
 
-## 6. Decisiones abiertas críticas (de `Preguntas y Dudas.md`)
+## 6. Decisiones abiertas críticas
+
+> **Actualizado en [`LUMA.md`](LUMA.md) §8 y §9.** Ya no hay bloqueantes para modelar o implementar. Quedan 3 reglas provisionales (P-02, P-07, P-08), 2 condicionales (P-09, P-13) y 8 abiertas no bloqueantes (P-06, P-11, P-23, P-25, P-26, P-31, P-33, P-40). La tabla siguiente es histórica.
 
 | # | Pregunta | Bloquea |
 |---|---|---|
@@ -131,15 +140,16 @@ Una **aplicación web responsive** que reemplaza el manejo manual en Excel y los
 | 14 (12–16/10) | Manual rápido de usuario | ⬜ |
 | 15 (19–23/10) | Entrega formal y carta de culminación | ⬜ |
 
-> **Observación:** los entregables de las semanas 3–5 se concentran hoy; el cronograma requiere replanificación o recuperación de atraso (P-50). Hoy es 27/09/2026 (semana 12 del plan original).
+> **Observación (16/11/2026):** la ventana académica 03/07–30/10/2026 ya venció y el software aún no se ha implementado; hay que replantear las fechas con los asesores conservando las dependencias de `LUMA.md` §13. La base 2026 ya está congelada y validada (Fase 3).
 
 ---
 
 ## 8. Próximos pasos
 
-1. **Reunión de desbloqueo** con Junta + contador sobre P-01, P-02, P-07, P-20 y P-51.
-2. Resolver por escrito el resto de preguntas 🔴 con la Lcda. Jheizzi Bethermy.
-3. Aplicar (o confirmar como no aplicable) la **encuesta vecinal** (P-49).
-4. Ejecutar la **semana 4** del plan: modelo Entidad-Relación y arquitectura, tomando como base los escaneos "Base de datos ①②③".
-5. Definir **stack y hosting** (P-43, P-44) antes de prototipar.
-6. Actualizar este documento con cada avance; cada cambio de alcance o requisito debe reflejarse primero en su documento de origen y luego aquí.
+1. Replantear el cronograma con los asesores: la ventana 03/07–30/10/2026 ya venció.
+2. Scaffold técnico (Fase 4): Next.js + TypeScript + Tailwind + shadcn/ui sobre el repo actual.
+3. Crear el proyecto Supabase y ejecutar las migraciones del modelo (`LUMA.md` §11) con RLS, vistas y auditoría.
+4. Importar el seed ya validado a Supabase usando `data/expected-base-2026.json` como prueba de cuadres.
+5. Cargar `personas.csv`, los 3 aptos de gas y el apto 67 cuando la Junta entregue esos datos (V-02, V-03, V-05).
+6. Implementar por dependencias: padrón → cobranza → gas → locales → egresos → cartelera/averías → reportes.
+7. Ejecutar el mes de operación en paralelo con Excel y el traspaso de cuentas (D-18, D-20).

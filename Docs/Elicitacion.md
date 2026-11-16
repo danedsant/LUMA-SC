@@ -1,5 +1,7 @@
 # Elicitación de Requisitos — LUMA
 
+> **Documento consolidado:** la versión canónica y vigente está en [`LUMA.md`](LUMA.md). Este archivo se conserva como fuente histórica de la elicitación.
+
 | Campo | Valor |
 |---|---|
 | Proyecto | LUMA — Sistema de información web para la gestión comunicacional y el control de incidencias / cobranza |
@@ -23,15 +25,17 @@ Consolidar **todo lo capturado de las fuentes disponibles** (notas de reunión, 
 | F1 | `Docs/Notas/Notas Reunion - Dia 1 .md` | Reunión con la Junta (19/08/2026, correspondiente a semana 1 del plan) | Alcance funcional declarado, conceptos de pago, pendientes |
 | F2 | `Docs/Notas/Notas Raw .md` | Notas crudas previas/posteriores a la reunión | Reglas de negocio sueltas, casos especiales |
 | F3 | `Docs/Notas/Servicio Comunitario - Anteproyecto - FInal .md` | Documento oficial UNEG | Diagnóstico, objetivos, resultados esperados, plan de trabajo 15 semanas |
-| F4 | `Docs/Scaneos/Reunion 19-08/1.jpg`, `2.jpg` | **Relación de Cobranzas** (marcado a mano "Base de datos ①") | Padrón, cuotas, pagos, referencias, tasas, saldos, totales |
-| F5 | `Docs/Scaneos/Reunion 19-08/3.jpg` | **Relación de Pagos de Servicio de Gas** ("Base de datos ②") | Pagos de gas por apartamento |
-| F6 | `Docs/Scaneos/Reunion 19-08/4.jpg` | Nota manuscrita | Contacto asesora comunitaria; tareas: Ley de Propiedad Horizontal y Junta General de Condominio |
-| F7 | `Docs/Scaneos/Reunion 19-08/5.jpg` | **Resumen de Ingresos y Egresos Locales** ("Base de datos ③") | Locales, cuotas, ingresos, egresos propios |
-| F8 | `Docs/Scaneos/Reunion 19-08/6.jpg` | **Egresos Cuentas Bancarias** | Detalle de egresos y notas del contador |
-| F9 | `Docs/Scaneos/Reunion 19-08/7.jpg` | **Relación de Egresos del Condominio — Julio 2026** | Egresos fijos/variables, alícuotas, gas, mensajes/notas/observaciones |
-| F10 | `Docs/Scaneos/Reunion 19-08/7reverso.jpg` | **Relación de Ingresos y Egresos (Bs.) — Julio 2026** | Ingresos por cuenta, otros ingresos, totales |
+| F4 | `Docs/Scaneos/Reunion 19-08/1.jpg`, `2.jpg` | **Relación de Cobranzas — Junio 2026** (marcado a mano "Base de datos ①") | Padrón, cuotas, pagos, referencias, tasas, saldos, totales |
+| F5 | `Docs/Scaneos/Reunion 19-08/3.jpg` | **Relación de Pagos de Servicio de Gas — Julio 2026** ("Base de datos ②") | Pagos de gas por apartamento |
+| F6 | `Docs/Scaneos/Reunion 19-08/4.jpg` | **Resumen de Ingresos y Egresos Locales — Julio 2026** ("Base de datos ③") | Locales, cuotas, ingresos, egresos propios |
+| F7 | `Docs/Scaneos/Reunion 19-08/5.jpg` | **Relación de Egresos del Condominio — Julio 2026** | Egresos fijos/variables, alícuotas, gas, mensajes/notas/observaciones |
+| F8 | `Docs/Scaneos/Reunion 19-08/6.jpg` | **Relación de Ingresos y Egresos (Bs.) — Julio 2026** | Ingresos por cuenta, otros ingresos, totales |
+| F9 | `Docs/Scaneos/Reunion 19-08/7.jpg` | **Egresos Cuentas Bancarias — Julio 2026** | Detalle de egresos y notas del contador |
+| F10 | `Docs/Scaneos/Reunion 19-08/7reverso.jpg` | Nota manuscrita | Contacto asesora comunitaria; tareas: Ley de Propiedad Horizontal y Junta General de Condominio |
 
 > Los escaneos ①②③ están marcados a mano como **"Base de datos"**: son la fuente de datos maestros para el modelado.
+>
+> **Corrección de mapeo (21/10/2026):** el mapeo original estaba desplazado. El vigente es: `4.jpg` = locales, `5.jpg` = egresos del condominio, `6.jpg` = ingresos/egresos en Bs., `7.jpg` = egresos bancarios, `7reverso.jpg` = nota manuscrita. Además, `1.jpg`/`2.jpg` son la cobranza de **junio 2026**, no de julio. Las referencias F7–F10 en secciones posteriores pueden conservar el mapeo antiguo; prevalece la tabla anterior y [`LUMA.md`](LUMA.md) §12.1.
 
 ---
 
@@ -153,12 +157,12 @@ Estos cuadres son la base para validar cualquier módulo financiero futuro:
 
 | Conjunto | Cuadre | Resultado |
 |---|---|---|
-| Cobranza julio | Total pagos en cuenta **753.635,90** = banco **669.329,54** + efectivo **6.500,00** + cruce de cuentas **6.333,60** + extemporáneo **71.472,76** | ✔ exacto |
-| Gas julio | **223.512,85** = banco **214.822,82** + efectivo **4.300,00** + cta por cobrar **4.390,03** | ✔ exacto |
-| Ingresos julio | 50.861,41 + 669.329,54 + 214.822,82 + 119.790,84 = **1.054.804,61** | ✔ exacto |
-| Alícuota | Egresos julio USD **1.088,03** × 0,982140 % = **10,69** (sin balcón); × 0,998545 % = **10,86** (con balcón) | ✔ exacto → **la cuota = alícuota × egresos del mes** |
-| Cuota junio | 9,34 / 0,982140 % ≈ **950,4** USD y 9,49 / 0,998545 % ≈ **950,4** USD de egresos | ✔ consistente |
-| Egresos | "Egresos cuentas bancarias" (F8) **995.391,42 Bs** vs "Relación de egresos del condominio" (F9) **≈ 709.599,72 Bs** | ✘ **no cuadran** → ver pregunta P-07 |
+| Cobranza **junio** | Total pagos en cuenta **753.635,90** = banco **669.329,54** + efectivo **6.500,00** + cruce de cuentas **6.333,60** + extemporáneo **71.472,76** | ✔ exacto |
+| Gas **julio** | **223.512,85** = banco **214.822,82** + efectivo **4.300,00** + cta por cobrar **4.390,03** | ✔ exacto |
+| Ingresos **julio** | 50.861,41 + 669.329,54 + 214.822,82 + 119.790,84 = **1.054.804,61** (bancarios); + **17.133,60** (otros) = **1.071.938,21** | ✔ exacto |
+| Alícuota **julio** | Egresos julio USD **1.088,03** × 0,982140 % = **10,69** (sin balcón); × 0,998545 % = **10,86** (con balcón) | ✔ exacto → **la cuota = alícuota × egresos del mes** |
+| Cuota **junio** | 9,34 / 0,982140 % ≈ **950,4** USD y 9,49 / 0,998545 % ≈ **950,4** USD de egresos | ✔ consistente |
+| Egresos **julio** | "Egresos cuentas bancarias" (`7.jpg`) **995.391,42 Bs** vs "Relación de egresos del condominio" (`5.jpg`) **≈ 709.599,72 Bs** | ✘ **no cuadran** → ver pregunta P-07 |
 
 **Hipótesis R2 confirmada aritméticamente** (pendiente de validación con la contador): *cuota de condominio del mes = alícuota fija del apartamento × egresos totales del mes expresados en USD*.
 

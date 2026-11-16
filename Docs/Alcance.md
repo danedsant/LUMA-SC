@@ -1,5 +1,7 @@
 # Alcance del Sistema — LUMA (Estado actual)
 
+> **Documento consolidado:** la versión canónica y vigente está en [`LUMA.md`](LUMA.md) (sección 3). Este archivo se conserva como fuente histórica. Cambios vigentes: 101 apartamentos, despliegue en Supabase + Vercel Free y solo el propietario con cuenta.
+
 | Campo | Valor |
 |---|---|
 | Documento | Definición de alcance (versión preliminar) |
@@ -40,7 +42,7 @@ Implementar un **sistema de información web** para la gestión comunicacional y
 - **Histórico de pagos de gas** por mes.
 - **Histórico de ingresos y egresos** (condominio, locales, gas) con sus tasas de cambio.
 - **Padrón de apartamentos y locales** con alícuotas y contratos.
-- Periodo base de arrastre: **julio 2026** (los tres escaneos marcados "Base de datos ①②③"), extendiéndose hacia atrás según los históricos disponibles.
+- Periodo base de arrastre: **junio–julio 2026** (cobranza de junio; gas, locales y egresos de julio), extendiéndose hacia atrás según los históricos disponibles.
 
 ## 5. Actores incluidos
 

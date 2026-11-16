@@ -1,5 +1,7 @@
 # Definición Técnica (Opción B), Cierre de Reglas de Negocio y Consultas Finales — LUMA
 
+> **Documento consolidado:** la versión canónica y vigente está en [`LUMA.md`](LUMA.md) (secciones 9, 10 y 11). Este archivo se conserva como fuente técnica. Correcciones incorporadas en `LUMA.md`: gas configurable por periodo, roles `ADMIN`/`VECINO`/`CONTADOR`, login por cédula, offline de solo lectura, 101 apartamentos y repositorio `danedsant/LUMA---Servicio-Comunitario`. **Corrección de periodo (21/10/2026):** la cobranza de `1.jpg`/`2.jpg` es de **junio 2026**, no de julio; el "corte base julio" se refiere solo a gas, locales, egresos e ingresos. El mapeo vigente de escaneos está en `LUMA.md` §12.1.
+
 | Campo | Valor |
 |---|---|
 | Proyecto | **LUMA** — Sistema de información web para la gestión comunicacional, incidencias y cobranza |

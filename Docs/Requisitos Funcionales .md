@@ -1,5 +1,7 @@
 # Requisitos Funcionales y No Funcionales — LUMA (Estado actual)
 
+> **Documento consolidado:** la versión canónica y vigente está en [`LUMA.md`](LUMA.md) (secciones 5 y 6). Este archivo se conserva como fuente histórica. Cambios vigentes: 101 apartamentos, login solo del propietario por cédula, sin rol `R-LOC`, gas configurable por periodo y PWA con offline de solo lectura.
+
 | Campo | Valor |
 |---|---|
 | Documento | Especificación de requisitos (versión preliminar / estado actual) |
