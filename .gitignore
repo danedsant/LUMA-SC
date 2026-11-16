@@ -1,0 +1,25 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Despliegue
+.vercel/
+
+# Supabase (local)
+supabase/.temp/
+supabase/.branches/
+
+# Datos personales (RNF-09): nunca versionar cédulas, teléfonos ni correos
+data/personal/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log

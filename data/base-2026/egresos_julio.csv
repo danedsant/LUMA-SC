@@ -1,0 +1,20 @@
+cuenta,fecha,descripcion,factura,monto_bs,tasa,monto_usd,tipo,imputado_a,observacion
+condominio,2026-07-13,1ERA QUINCENA Y CESTA TICKET,22199,32460.00,721.35,45.00,nomina,recibo_condominio,
+condominio,2026-07-30,2DA QUINCENA Y CESTA TICKET,62164,33553.00,745.64,45.00,nomina,recibo_condominio,"El banco agrupa ambas quincenas en 66.013,00 Bs"
+condominio,,BONIFICACION NO SALARIAL,18611-32319-51720-52549-66433,110358.93,,150.00,nomina,recibo_condominio,Tasa PROM
+condominio,,HONORARIOS PROFESIONALES,3004-1106-901-5830-9003-4888-9248-2834,139715.86,,200.00,servicio,recibo_condominio,Tasa PROM
+condominio,,HIDROBOLIVAR,,110025.00,746.63,122.52,servicio,recibo_condominio,"El recibo imputa 91.475,65 Bs; el banco pagó 110.025,00 Bs"
+condominio,,ELEORIENTE (CORPOELEC + CONSEJERIA),,99641.90,746.63,173.58,servicio,recibo_condominio,"Recibo 127.826,24 + 1.776,31 Bs; banco pagó 99.641,90 Bs"
+gas,,SERVICIO DE GAS,,220300.00,,,servicio,cuenta_gas,Pago al proveedor; no forma parte del recibo de condominio
+condominio,2026-07-10,COMPRA 50 BOLSAS 40 KG NEGRAS,15464,15850.00,674.93,23.48,compra,recibo_condominio,
+condominio,2026-07-14,CORTE DE GRAMA AREAS COMUNES Y FRENTE DE ESTACIONAMIENTO,16766-24253,100581.61,716.85,140.31,servicio,recibo_condominio,Fecha del reporte 10-14/07/2026
+condominio,2026-07-13,COLABORACION RECOLECCION DE BOLSAS DE GRAMAS,2256,7214.00,721.35,10.00,servicio,recibo_condominio,
+condominio,2026-07-16,"COMPRA DE CEMENTO GRIS 42,5 KG",29220,8730.00,727.45,12.00,compra,recibo_condominio,
+condominio,2026-07-16,COMPRA 05 BLOQUES ROJOS,29220,7270.00,727.45,9.99,compra,recibo_condominio,
+condominio,2026-07-13,GASTOS DE OFICINA (24 IMPRESIONES CARTA),EFECTIVO,1680.00,721.35,2.33,gasto,recibo_condominio,Reportado como efectivo e incluido en el consolidado bancario
+condominio,2026-07-01,ARREGLO DE CERRADURA PUERTA PRINCIPAL EDIFICIO,CRUCE CONDOMINIO,6333.60,633.36,10.00,mantenimiento,recibo_condominio,Cruce de cuentas
+condominio,,CUENTA POR COBRAR ADMINISTRACION,,9795.00,,,interno,fuera_recibo,Adelanto reintegrado el 08/08/2026 Ref. 877422
+condominio,2026-07-16,COMPRA ESCOBA CON PALO Y 01 PAR DE GUANTES,30185,7274.00,727.45,10.00,compra,recibo_condominio,
+locales,,MANO DE OBRA ASCENSOR (CUENTA LOCALES),,67108.00,,,servicio,cuenta_locales,Pagado por la cuenta de locales
+condominio,,COMISIONES BANCARIAS,PROM,17500.52,735.00,23.81,comision,recibo_condominio,
+condominio,,PREVISION VACACIONES DORA AZUAJE,,,,110.00,provision,recibo_condominio,Provisión contable; no es salida de banco

@@ -1,0 +1,55 @@
+{
+  "padron": {
+    "aptos": 101,
+    "gas_aptos": 58,
+    "locales": 5,
+    "cobranza_filas": 100,
+    "cobranza_sin_fila": ["67"],
+    "gas_faltantes": 3
+  },
+  "alicuotas": {
+    "con_balcon": 0.00998545,
+    "sin_balcon": 0.00982140
+  },
+  "cobranza": {
+    "periodo": "2026-06",
+    "total_bs": 753635.90,
+    "banco_bs": 669329.54,
+    "efectivo_bs": 6500.00,
+    "cruce_bs": 6333.60,
+    "extemporaneo_bs": 71472.76,
+    "clasificacion_provisional": {
+      "banco_bs": 658073.86,
+      "extemporaneo_bs": 82728.44,
+      "diferencia_bs": 11255.68,
+      "motivo": "V-01: corte recibos/banco pendiente de la contadora"
+    },
+    "ajustes": {
+      "filas": 17,
+      "max_usd": 1.33,
+      "motivo": "V-07/P-08: diferencias de centavos entre saldo mostrado y fórmula"
+    }
+  },
+  "gas": {
+    "periodo": "2026-07",
+    "total_bs": 223512.85,
+    "banco_bs": 214822.82,
+    "efectivo_bs": 4300.00,
+    "cxc_bs": 4390.03
+  },
+  "locales": {
+    "periodo": "2026-07",
+    "total_bs": 119790.84
+  },
+  "egresos": {
+    "periodo": "2026-07",
+    "recibo_condominio_usd": 1088.03,
+    "flujo_banco_bs": 995391.42
+  },
+  "ingresos": {
+    "periodo": "2026-07",
+    "banco_bs": 1054804.61,
+    "otros_bs": 17133.60,
+    "total_bs": 1071938.21
+  }
+}
