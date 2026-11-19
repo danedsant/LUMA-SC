@@ -483,6 +483,8 @@ Implementar un sistema de información web para la gestión comunicacional y el 
 | D-21 | 21/10/2026 | Se adopta la transcripción verificada de cobranza junio (pagos 753.635,90 Bs y cuota 964,43 USD) y se documentan las diferencias de saldo anterior del reporte; banco/extemporáneo se clasifica provisionalmente por fecha (julio/agosto) y el corte de 11.255,68 Bs espera el criterio de la contadora (P-09) | Tomada |
 | D-22 | 16/11/2026 | Se congela la base 2026: PB corregidos a `planta_baja`, `activo` conservado, `personas.csv` vacío y V-01/V-02/V-03/V-07 declaradas como excepciones toleradas en `expected-base-2026.json`; los totales impresos no se alteran | Tomada |
 | D-23 | 16/11/2026 | La app Next.js se ubica en la raíz del repo y `Docs`, `data` y `scripts` pasan a `documentacion/`; el repo `LUMA-SC` se mantiene público y `personas.csv` no se versiona (solo `personas.example.csv`); Supabase se usa en remoto (sin Docker) y se fija Node 22 | Tomada |
+| D-24 | 16/11/2026 | Fase 4 sobre Next.js 16.4.6 (guardia en `src/proxy.ts`, `cookies()` async), `exceljs` en lugar de `xlsx` por CVEs, y scripts `import-seed`/`verify-cuadres` idempotentes contra Supabase remoto | Tomada |
+| D-25 | 16/11/2026 | **Material UI v9** (con Emotion y `@mui/material-nextjs`) es la UI principal; se retiran shadcn/ui, Tailwind, `@base-ui/react`, `sonner` y `lucide-react`. Se integran skills de agentes con `npx autoskills` (midudev) en `.agents/skills/` más las MUI Skills oficiales; `.claude/skills/` es espejo ignorado por git | Tomada |
 
 ### 9.1 Decisiones técnicas derivadas
 
@@ -752,7 +754,7 @@ erDiagram
 | 1 | Documentos fuente marcados y sin contradicciones | Banners de consolidación y `Avance.md` actualizado | ✅ |
 | 2 | Modelo de datos implementable | ER, diccionario, RLS y reglas monetarias aprobadas | ✅ (en este documento) |
 | 3 | CSV base 2026 + script de validación | Reproduce los cuadres de la sección 12.3 | ✅ Validador con 0 errores y 13 cuadres (16/11/2026); diferencias V-01/V-02/V-03/V-07 toleradas y documentadas; `personas.csv` pendiente por falta de datos |
-| 4 | Scaffold y migraciones | Next.js + Supabase + RLS + Storage | ⬜ |
+| 4 | Scaffold y migraciones | Next.js + Supabase + RLS + Storage | 🟡 Scaffold Next.js 16 con MUI v9, migraciones, RLS, vistas, auditoría, importador y verificador listos (D-24/D-25); falta crear el proyecto Supabase/Vercel y ejecutar `db:push` + `seed` |
 | 5 | Módulos MVP | Padrón, cobranza, gas, locales, cartelera, averías, reportes | ⬜ |
 | 6 | Piloto en paralelo | Un mes con Excel y sistema; acta de validación | ⬜ |
 | 7 | Despliegue y traspaso | Keep-alive, respaldo probado, manual y cuentas transferidas | ⬜ |

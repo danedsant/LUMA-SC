@@ -15,18 +15,22 @@
 
 ## 1. Estado general
 
-**Fase actual: base de datos congelada y validada; siguiente es el scaffold técnico** (Fases 0–3 cerradas, Fase 4 pendiente en `LUMA.md`).
+**Fase actual: Fase 4 (scaffold y migraciones) lista en código; falta conectar Supabase y Vercel** (Fases 0–3 cerradas).
 
 **Cierre del 16/11/2026:** `node documentacion/scripts/validate-seed.mjs documentacion/data/base-2026` → **0 errores y 13 cuadres**. Se corrigieron los PB a `planta_baja`, se incorporó `activo` al modelo/validador (V-08) y V-01/V-02/V-03/V-07 quedaron como excepciones toleradas y documentadas. `personas.csv` sigue vacío por falta de datos (V-05). Detalle en [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md).
 
+**Fase 4 (16/11/2026):** app Next.js 16.4.6 + **Material UI v9** en la raíz, migraciones `supabase/migrations/` con RLS, vistas y auditoría, scripts `import-seed.mjs` y `verify-cuadres.mjs`; `npm run lint`, `npm run typecheck` y `npm run build` correctos, `npm audit` en 0. Skills de agentes integradas con `npx autoskills` (+ MUI Skills). Detalle en [`Implementacion-Fase-4.md`](Implementacion-Fase-4.md) y pendientes en [`Pendientes.md`](Pendientes.md).
+
 | Documento | Estado | Descripción |
 |---|---|---|
-| [`LUMA.md`](LUMA.md) | ✅ Canónico | Alcance, requisitos, 52 preguntas, decisiones D-01 a D-22, arquitectura, modelo de datos y plan |
+| [`LUMA.md`](LUMA.md) | ✅ Canónico | Alcance, requisitos, 52 preguntas, decisiones D-01 a D-25, arquitectura, modelo de datos y plan |
 | [`Elicitacion.md`](Elicitacion.md) | 📚 Fuente | Fuentes, actores, hallazgos por dominio, reglas de negocio, cuadres aritméticos, gaps |
 | [`Requisitos Funcionales .md`](<Requisitos Funcionales .md>) | ✅ Creado | 54 RF + 21 RNF organizados en 10 módulos, con trazabilidad |
 | [`Alcance.md`](Alcance.md) | ✅ Creado | Alcance funcional y de datos, exclusiones, supuestos, dependencias, éxito |
 | [`Preguntas y Dudas.md`](<Preguntas y Dudas.md>) | ✅ Consolidado | 52 preguntas + V-01 a V-10; sin bloqueantes para modelar (P-40 bloquea publicar morosos) |
-| [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md) | ✅ Este cierre | Base 2026 congelada, validador sin errores y repo versionado |
+| [`Implementacion-2026-11-16.md`](Implementacion-2026-11-16.md) | ✅ Fase 3 | Base 2026 congelada, validador sin errores y repo versionado |
+| [`Implementacion-Fase-4.md`](Implementacion-Fase-4.md) | ✅ Fase 4 | Scaffold Next.js 16, migraciones Supabase, RLS, importador y verificador |
+| [`Pendientes.md`](Pendientes.md) | 🔜 Tablero | Pendientes manuales, datos faltantes y deuda técnica priorizada |
 | `documentacion/data/` + `documentacion/scripts/` | ✅ Congelado | 101 aptos, cobranza junio, gas, locales y egresos; validador sin errores (16/11/2026) |
 | `Avance.md` | ✅ Este documento | Consolidado central |
 
@@ -147,9 +151,9 @@ Una **aplicación web responsive** que reemplaza el manejo manual en Excel y los
 ## 8. Próximos pasos
 
 1. Replantear el cronograma con los asesores: la ventana 03/07–30/10/2026 ya venció.
-2. Scaffold técnico (Fase 4): Next.js + TypeScript + Tailwind + shadcn/ui sobre el repo actual.
-3. Crear el proyecto Supabase y ejecutar las migraciones del modelo (`LUMA.md` §11) con RLS, vistas y auditoría.
-4. Importar el seed ya validado a Supabase usando `documentacion/data/expected-base-2026.json` como prueba de cuadres.
+2. ✅ Scaffold técnico (Fase 4): Next.js 16 + TypeScript + Tailwind v4 + shadcn/ui en la raíz.
+3. Crear el proyecto Supabase y ejecutar `npx supabase link` + `npm run db:push` (migraciones con RLS, vistas y auditoría ya escritas).
+4. Ejecutar `npm run seed -- --admin-cedula=… --admin-password=…` y `npm run verify` usando `expected-base-2026.json` como prueba de cuadres.
 5. Cargar `personas.csv`, los 3 aptos de gas y el apto 67 cuando la Junta entregue esos datos (V-02, V-03, V-05).
-6. Implementar por dependencias: padrón → cobranza → gas → locales → egresos → cartelera/averías → reportes.
+6. Implementar por dependencias: padrón → cobranza → gas → locales → egresos → cartelera/averías → reportes (Fase 5).
 7. Ejecutar el mes de operación en paralelo con Excel y el traspaso de cuentas (D-18, D-20).

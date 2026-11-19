@@ -60,7 +60,6 @@ Configurar en **Production**, **Preview** y **Development**:
 - [ ] `NEXT_PUBLIC_SUPABASE_URL`
 - [ ] `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - [ ] `SUPABASE_SERVICE_ROLE_KEY` (solo servidor; nunca `NEXT_PUBLIC_`)
-- [ ] `CRON_SECRET`
 
 ### Despliegue
 - [ ] Deploy inicial correcto y URL de producción anotada.
